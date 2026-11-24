@@ -43,8 +43,8 @@ void printMatrix(const int *matptr, int rows, int cols)
         for (j = 0; j < cols; j++)
         {
             printf("%6d (%p)  ",
-                   *(matptr + i * cols + j),
-                   (void *)(matptr + i * cols + j));
+                   *(matptr + i * MAX_SIZE + j),
+                   (void *)(matptr + i * MAX_SIZE + j));
         }
 
         printf("\n");

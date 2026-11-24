@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "matrixfunc.h"
+#define MAX_SIZE 100
 
 void sumRows(const int *matptr, int rows, int cols)
 {
@@ -13,7 +14,7 @@ void sumRows(const int *matptr, int rows, int cols)
 
         for (j = 0; j < cols; j++)
         {
-            sum += *(matptr + i * cols + j);
+            sum += *(matptr + i * MAX_SIZE + j); // как matrix[i][j]
         }
 
         printf("Сумма элементов строки %d: %d\n", i + 1, sum);
@@ -28,9 +29,9 @@ int countGreater(const int *matptr, int rows, int cols, int k)
 
     for (i = 0; i < rows; i++)
     {
-        for (j = 0; j < cols; j++)
+        for (j = 0; j < cols; j++) 
         {
-            if (*(matptr + i * cols + j) > k)
+            if (*(matptr + i * MAX_SIZE + j) > k)
             {
                 count++;
             }
@@ -50,9 +51,9 @@ int lastNegative(const int *matptr, int rows, int cols, int *value)
     {
         for (j = 0; j < cols; j++)
         {
-            if (*(matptr + i * cols + j) < 0)
+            if (*(matptr + i * MAX_SIZE + j) < 0)
             {
-                *value = *(matptr + i * cols + j);
+                *value = *(matptr + i * MAX_SIZE + j);
                 found = 1;
             }
         }
